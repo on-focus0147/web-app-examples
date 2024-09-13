@@ -5,12 +5,63 @@
                       https://jakarta.ee/xml/ns/jakartaee/web-app_6_1.xsd"
          version="6.1">
     <display-name>WebApp on Servlets</display-name>
+    <!--HelloServlet-->
     <servlet>
         <servlet-name>HelloServlet</servlet-name>
-        <servlet-class>on.focus0147.App</servlet-class>
+        <servlet-class>on.focus0147.servlets.SloganServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>HelloServlet</servlet-name>
-        <url-pattern>/</url-pattern>
+        <url-pattern>/slogan</url-pattern>
     </servlet-mapping>
+    <!--Resource1Servlet-->
+    <servlet>
+        <servlet-name>Resource1Servlet</servlet-name>
+        <jsp-file>/WEB-INF/resource1.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Resource1Servlet</servlet-name>
+        <url-pattern>/resource/1</url-pattern>
+    </servlet-mapping>
+    <!--Resource2Servlet-->
+    <servlet>
+        <servlet-name>Resource2Servlet</servlet-name>
+        <jsp-file>/resource2.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Resource2Servlet</servlet-name>
+        <url-pattern>/resource/2</url-pattern>
+    </servlet-mapping>
+    <!--Resource3ServletCheck1-->
+    <servlet>
+        <servlet-name>Resource3ServletCheck1</servlet-name>
+        <servlet-class>on.focus0147.servlets.Resource3Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Resource3ServletCheck1</servlet-name>
+        <url-pattern>/resource/31</url-pattern>
+    </servlet-mapping>
+    <!--Resource3ServletCheck2-->
+    <servlet>
+        <servlet-name>Resource3ServletCheck2</servlet-name>
+        <jsp-file>/WEB-INF/classes/view/resource3.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Resource3ServletCheck2</servlet-name>
+        <url-pattern>/resource/32</url-pattern>
+    </servlet-mapping>
+    <!--ErrorServlet-->
+    <servlet>
+        <servlet-name>ErrorServlet</servlet-name>
+        <servlet-class>on.focus0147.servlets.ErrorServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ErrorServlet</servlet-name>
+        <url-pattern>/throw</url-pattern>
+    </servlet-mapping>
+    <!--AllErrors-->
+    <error-page>
+        <exception-type>java.lang.Throwable</exception-type>
+        <location>/error.jsp</location>
+    </error-page>
 </web-app>
