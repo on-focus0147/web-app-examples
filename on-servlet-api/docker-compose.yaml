@@ -11,24 +11,25 @@ services:
     command:
       - /bin/sh
       - -c
-      - cp target/*.war /usr/local/tomcat/webapps && ls && catalina.sh run
+      - cp target/*.war webapps && ls && catalina.sh run
     volumes:
 #     "host path to the directory with .war file" / "container tomcat directory with webapps"
       - "./target:/usr/local/tomcat/target"
     environment:
-      JAVA_OPTS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"
+      JAVA_OPTS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 "
 #      JAVA_OPTS: "JAVA_OPTS -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"
-  tomcat11-manager-on-servlet-api-exploded:
+  tomcat11-manager-on-servlet-api-another:
+    # если бы в context.xml не был прописан файл конфига, то подложили бы в папку томката
     image: onfocus0147/tomcat11-manager:latest
     ports:
-      #     expose tomcat port 8080(container) on host as port 8888(host)
       - "8888:8080"
-      #     expose java debugging port 5005 on host as port 5005  (HOST:CONTAINER)
       - "5005:5005"
-    command: "catalina.sh run"
+    command:
+      - /bin/sh
+      - -c
+      - cp target/*.war webapps && cp myconfig/*.config conf/ && ls && catalina.sh run
     volumes:
-      #     "host path to the directory with .war file" / "container tomcat directory with webapps"
-      - "./target:/usr/local/tomcat/webapps"
+      - "./target:/usr/local/tomcat/target"
+      - "./src/main/resources:/usr/local/tomcat/myconfig"
     environment:
-      JAVA_OPTS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"
-#      JAVA_OPTS: "JAVA_OPTS -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"
+      JAVA_OPTS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Djava.security.auth.login.config==/usr/local/tomcat/conf/jaas.config"

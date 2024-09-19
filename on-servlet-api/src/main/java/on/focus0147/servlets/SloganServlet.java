@@ -28,28 +28,38 @@ public class SloganServlet extends HttpServlet {
         builder.append(urlPrefix);
         builder.append("/slogan");
         builder.append("\">slogan</a><br>");
+
         builder.append("<a href=\"");
         builder.append(urlPrefix);
         builder.append("/throw");
         builder.append("\">throw</a><br>");
+
         builder.append("<a href=\"");
         builder.append(urlPrefix);
         builder.append("/resource/1");
         builder.append("\">resource/1</a><br>");
+
         builder.append("<a href=\"");
         builder.append(urlPrefix);
         builder.append("/resource/2");
         builder.append("\">resource/2</a><br>");
+
         builder.append("<a href=\"");
         builder.append(urlPrefix);
         builder.append("/resource/31");
-        builder.append("\">resource/31<br>");
+        builder.append("\">resource/31</a><br>");
+
         builder.append("<a href=\"");
         builder.append(urlPrefix);
         builder.append("/resource/32");
-        builder.append("\">resource/32</a>");
-        builder.append("</html>");
+        builder.append("\">resource/32</a><br>");
 
+        builder.append("<a href=\"");
+        builder.append(urlPrefix);
+        builder.append("/secret");
+        builder.append("\">secret</a><br>");
+
+        builder.append("</html>");
         return builder.toString();
     }
 
