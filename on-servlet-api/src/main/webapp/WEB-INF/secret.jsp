@@ -5,5 +5,6 @@
 	<title>This is a secure resource</title>
 </head>
 <body>
-	<span>This is a secure resource</span>
+	<span>This is a secure resource</span><br>
+	<a href="${pageContext.request.contextPath}/">LOGOUT</a>
 </body>

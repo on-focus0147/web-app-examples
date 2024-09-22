@@ -10,6 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * На основе BASIC авторизации будет сессия сущестоввать до тех пор,
+ * пока браузер не закроется, например
+ */
 public class LoginModuleImpl implements LoginModule {
 
     //При помощи CallbackHandler мы сможем запросить различную информацию о субъекте аутентификации

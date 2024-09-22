@@ -73,6 +73,15 @@
         <servlet-name>SecretServlet</servlet-name>
         <url-pattern>/secret</url-pattern>
     </servlet-mapping>
+    <!--LogoutServlet-->
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>on.focus0147.auth.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
     <!--security-->
     <security-constraint>
         <web-resource-collection>
@@ -84,9 +93,16 @@
         </auth-constraint>
     </security-constraint>
 
-    <login-config>
+    <!-- <login-config>
         <auth-method>BASIC</auth-method>
         <realm-name>AuthPage</realm-name>
+    </login-config> -->
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <form-login-config>
+            <form-login-page>/WEB-INF/login.html</form-login-page>
+            <form-error-page>/error.jsp</form-error-page>
+        </form-login-config>
     </login-config>
 
 </web-app>

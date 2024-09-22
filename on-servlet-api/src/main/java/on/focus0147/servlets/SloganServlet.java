@@ -27,37 +27,9 @@ public class SloganServlet extends HttpServlet {
         builder.append("<a href=\"");
         builder.append(urlPrefix);
         builder.append("/slogan");
-        builder.append("\">slogan</a><br>");
+        builder.append("\">JUST THIS PAGE</a><br><br>");
 
-        builder.append("<a href=\"");
-        builder.append(urlPrefix);
-        builder.append("/throw");
-        builder.append("\">throw</a><br>");
-
-        builder.append("<a href=\"");
-        builder.append(urlPrefix);
-        builder.append("/resource/1");
-        builder.append("\">resource/1</a><br>");
-
-        builder.append("<a href=\"");
-        builder.append(urlPrefix);
-        builder.append("/resource/2");
-        builder.append("\">resource/2</a><br>");
-
-        builder.append("<a href=\"");
-        builder.append(urlPrefix);
-        builder.append("/resource/31");
-        builder.append("\">resource/31</a><br>");
-
-        builder.append("<a href=\"");
-        builder.append(urlPrefix);
-        builder.append("/resource/32");
-        builder.append("\">resource/32</a><br>");
-
-        builder.append("<a href=\"");
-        builder.append(urlPrefix);
-        builder.append("/secret");
-        builder.append("\">secret</a><br>");
+        builder.append(getSlogan());
 
         builder.append("</html>");
         return builder.toString();
@@ -67,7 +39,6 @@ public class SloganServlet extends HttpServlet {
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
         PrintWriter out = resp.getWriter();
-        //out.println(this.getSlogan());
         out.print(getUrls(req));
         out.close();
     }
