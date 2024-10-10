@@ -1,9 +1,9 @@
 Простой RestFull сервис на основе сервлетов. Только GET запросы.
 # Технологии
-Jakarta Servlet (jakarta.servlet:jakarta.servlet-api)
-Java Authentication and Authorization Service (JAAS)
+* Jakarta Servlet (jakarta.servlet:jakarta.servlet-api)
+* Java Authentication and Authorization Service (JAAS)
 # Как запустить из IDE
-## Если war
+## Через docker на tomcat 11
 1. Собрать war : mvn clean package
 2. Включить докер
 2. В `docker-compose.yaml` запустить `tomcat11-manager-on-servlet-api` 
