@@ -1,5 +1,7 @@
-Простое приложение на Jakarta Servlet.
-
+Простой RestFull сервис на основе сервлетов. Только GET запросы.
+# Технологии
+Jakarta Servlet (jakarta.servlet:jakarta.servlet-api)
+Java Authentication and Authorization Service (JAAS)
 # Как запустить из IDE
 ## Если war
 1. Собрать war : mvn clean package
