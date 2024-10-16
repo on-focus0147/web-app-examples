@@ -15,6 +15,8 @@ public class FullPaths {
 
     public static final String VAL1 = BASE_URI + "valid/q";
 
+    public String getBaseUri(){return BASE_URI;}
+
     public String getHelloWorld1(){
         return HELLO_WORLD1;
     }

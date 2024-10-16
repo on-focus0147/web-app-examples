@@ -20,5 +20,14 @@
 
 <p>Валидация (ожидаем ошибки)</p>
 <a href="${model.val1}">${model.val1}</a><br>
+
+<p>На response</p>
+<a href="${model.baseUri}response/ok">${model.baseUri}response/ok</a><br>
+<a href="${model.baseUri}response/not_ok">${model.baseUri}response/not_ok</a><br>
+<a href="${model.baseUri}response/text_plain">${model.baseUri}response/text_plain</a><br>
+<a href="${model.baseUri}response/text_plain_annotation">${model.baseUri}response/text_plain_annotation</a><br>
+<a href="${model.baseUri}response/json">${model.baseUri}response/json</a><br>
+<a href="${model.baseUri}response/xml">${model.baseUri}response/xml</a><br>
+<a href="${model.baseUri}response/html">${model.baseUri}response/html</a><br>
 </body>
 </html>

@@ -5,7 +5,6 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import on.focus0147.model.Person;
 
 @Path("/response")
 public class ResponseResource {
@@ -51,18 +50,6 @@ public class ResponseResource {
         return Response
           .status(Response.Status.OK)
           .entity(message)
-          .build();
-    }
-
-    @GET
-    @Path("/pojo")
-    public Response getPojoResponse() {
-
-        Person person = new Person("Jonny");
-
-        return Response
-          .status(Response.Status.OK)
-          .entity(person)
           .build();
     }
 
