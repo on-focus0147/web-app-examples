@@ -17,5 +17,8 @@
 
 <p>DI</p>
 <a href="${model.di1}">${model.di1}</a><br>
+
+<p>Валидация (ожидаем ошибки)</p>
+<a href="${model.val1}">${model.val1}</a><br>
 </body>
 </html>

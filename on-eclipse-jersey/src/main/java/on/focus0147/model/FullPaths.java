@@ -13,6 +13,8 @@ public class FullPaths {
 
     public static final String DI1 = BASE_URI + "message";
 
+    public static final String VAL1 = BASE_URI + "valid/q";
+
     public String getHelloWorld1(){
         return HELLO_WORLD1;
     }
@@ -40,5 +42,7 @@ public class FullPaths {
     public String getDi1(){
         return DI1;
     }
+
+    public String getVal1(){return VAL1;}
 
 }
