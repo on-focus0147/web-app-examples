@@ -3,11 +3,13 @@
 Простой RESTful сервис на основе JAX-RS. Только GET запросы.
 # Технологии
 * Jersey как реализация JAX-RS
-* Grizzly в качестве сервера
-* HK2 для DI
+* Grizzly (jersey-container-grizzly2-http) в качестве сервера
+* HK2 (jersey-hk2) для DI
+
 # Как запустить из IDE
 1. На Application выполнить Run
 2. Открыть URL по адресу http://localhost:8888/
+
 # Информационная справка
 
 #### REST

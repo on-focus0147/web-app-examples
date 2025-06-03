@@ -1,7 +1,9 @@
 Простой RestFull сервис на основе сервлетов. Только GET запросы.
 # Технологии
-* Jakarta Servlet (jakarta.servlet:jakarta.servlet-api)
-* RESTeasy (JBoss)
+* Jakarta Servlet API (jakarta.servlet:jakarta.servlet-api) - для работы с сервлетами
+* RESTeasy (JBoss) - реализация JAX-RS
+* resteasy-jaxb-provider - для работы с сериализацией объектов в XML-формат.
+* Lombok - для генерации геттеров, сеттеров
 # Как запустить из IDE
 ## Через docker на tomcat 11
 1. Собрать war : mvn clean package
