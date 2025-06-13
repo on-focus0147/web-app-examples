@@ -1,0 +1,51 @@
+version: '3.8'
+services:
+  client-db:
+    image: mariadb:11.7.2
+    container_name: client-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: mydb
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: mypassword
+    volumes:
+      - ./scripts:/docker-entrypoint-initdb.d
+    ports:
+      - "3306:3306"
+    networks:
+      - app_network
+    healthcheck:
+      # Команда для проверки готовности БД.
+      # https://mariadb.com/kb/en/using-healthcheck-sh/
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s       # Интервал между проверками
+      timeout: 5s         # Максимальное время ожидания ответа
+      retries: 2          # Количество попыток перед тем, как считать сервис "нездоровым"
+      start_period: 5s   # Время на первоначальный запуск БД до начала проверок
+
+  tomcat11-manager-on-spring-mvc:
+    image: onfocus0147/tomcat11-manager:latest
+    container_name: tomcat11-manager-on-spring-mvc
+    depends_on:
+      client-db:
+        condition: service_healthy
+    ports:
+#     expose tomcat port 8080(container) on host as port 8888(host)
+      - "8888:8080"
+#     expose java debugging port 5005 on host as port 5005  (HOST:CONTAINER)
+      - "5005:5005"
+    command:
+      - /bin/sh
+      - -c
+      - cp target/*.war webapps && ls && catalina.sh run
+    volumes:
+#     "host path to the directory with .war file" / "container tomcat directory with webapps"
+      - "./target:/usr/local/tomcat/target"
+    environment:
+      JAVA_OPTS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 "
+    networks:
+      - app_network
+networks:
+  app_network:
+    driver: bridge

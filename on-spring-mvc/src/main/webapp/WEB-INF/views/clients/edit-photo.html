@@ -1,0 +1,25 @@
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+  <head th:replace="~{templates/layout :: pageTitle('Edit photo')}"></head>
+
+  <body>
+  <h4>EDIT PHOTO</h4>
+  <div>
+    <form name="update_photo" th:action="@{/client/} + ${client.id} + '/edit/photo'" method="POST" enctype="multipart/form-data">
+      <div>
+        <input type="file" name="file" id="file" class="form-control"/>
+      </div>
+      <div>
+        <input type="submit" value="SAVE" id="submit"/>
+      </div>
+    </form>
+    <div>
+      <ul>
+        <li><strong><a href="#" th:href="@{/client/} + ${client.id}">CANCEL</a></strong></li>
+      </ul>
+    </div>
+  </div>
+  <header th:replace="~{templates/layout :: pageMenu}" ></header>
+  </body>
+</html>

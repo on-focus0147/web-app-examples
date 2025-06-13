@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+
+<head th:replace="~{templates/layout :: pageTitle('Create')}"></head>
+
+<body>
+<h4>CREATE</h4>
+<div>
+  <form name="create_info" th:action="@{/clients}" th:object="${client}" th:method="post" enctype="multipart/form-data">
+    <div>
+      <label for="firstName">firstName</label>
+      <div>
+        <input type="text" th:field="*{firstName}"/>
+        <div th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" class="error">MISSING FN</div>
+      </div>
+    </div>
+
+    <div>
+      <label for="lastName">lastName</label>
+      <div>
+        <input type="text" th:field="*{lastName}" class="form-control"/>
+        <div th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="error">MISSING LN</div>
+      </div>
+    </div>
+
+    <div>
+      <label for="birthDate">birthDate</label>
+      <div>
+        <input type="date" th:field="*{birthDate}" data-target="#datetimepicker1"/>
+        <div th:if="${#fields.hasErrors('birthDate')}" th:errors="*{birthDate}" class="error">MISSING BD</div>
+      </div>
+    </div>
+
+    <div>
+      <label for="file">photo</label>
+      <div>
+        <input type="file" th:field="*{photo}" name="file" id="file"/>
+      </div>
+    </div>
+
+    <div>
+      <input type="submit" value="SAVE"/>
+    </div>
+  </form>
+
+  <p th:if="${message ne null}" th:text="${message}" class="error"></p>
+  <div>
+    <ul>
+      <li><strong><a href="#" th:href="@{/clients}">CANCEL</a></strong></li>
+    </ul>
+  </div>
+</div>
+<header th:replace="~{templates/layout :: pageMenu}" ></header>
+</body>
+</html>

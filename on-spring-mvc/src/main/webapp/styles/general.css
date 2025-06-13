@@ -1,0 +1,14 @@
+
+.menu{
+    line-height:30px;
+    width:100px;
+    padding:5px;
+}
+
+.error{
+    border: 1px solid;
+    margin: 3px 0px;
+    padding:3px 3px 3px 3px;
+    color: #D8000C;
+    background-color: #FFBABA;
+}

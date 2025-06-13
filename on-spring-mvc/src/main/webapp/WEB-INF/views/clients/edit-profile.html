@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+
+<head th:replace="~{templates/layout :: pageTitle('Edit')}"></head>
+
+  <body>
+  <h4>EDIT</h4>
+    <div>
+      <form name="update_info" th:action="@{/client/} + ${client.id}" th:object="${client}" th:method="put">
+        <input type="hidden" th:field="*{id}" />
+
+        <div>
+          <label for="firstName">firstName</label>
+          <div>
+            <input type="text" th:field="*{firstName}"/>
+            <div th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" class="error">MISSING FN</div>
+          </div>
+        </div>
+
+        <div>
+          <label for="lastName">lastName</label>
+          <div>
+            <input type="text" th:field="*{lastName}" class="form-control"/>
+            <div th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="error">MISSING LN</div>
+          </div>
+        </div>
+
+          <div>
+            <label for="birthDate">birthDate</label>
+            <div>
+              <input type="date" th:field="*{birthDate}" data-target="#datetimepicker1"/>
+              <div th:if="${#fields.hasErrors('birthDate')}" th:errors="*{birthDate}" class="error">MISSING BD</div>
+            </div>
+          </div>
+
+        <div>
+          <input type="submit" value="SAVE"/>
+        </div>
+      </form>
+
+      <p th:if="${message ne null}" th:text="${message}" class="error"></p>
+      <div>
+        <ul>
+          <li><strong><a href="#" th:href="@{/client/} + ${client.id}">CANCEL</a></strong></li>
+        </ul>
+      </div>
+    </div>
+    <header th:replace="~{templates/layout :: pageMenu}" ></header>
+  </body>
+</html>

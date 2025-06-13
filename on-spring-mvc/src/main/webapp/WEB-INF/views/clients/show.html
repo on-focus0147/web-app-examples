@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="~{templates/layout :: pageTitle('Client')}"></head>
+
+  <body>
+    <div>
+        <div>
+          <table>
+            <tr>
+              <th>firstname</th>
+              <td th:text="${client.firstName}" >FN</td>
+            </tr>
+            <tr>
+              <th>lastname</th>
+              <td th:text="${client.lastName}" >LN</td>
+            </tr>
+            <tr>
+              <th>birthDate</th>
+              <td th:text="${client.birthDate}" >BD</td>
+            </tr>
+            <tr th:if="${client.photo != null}">
+              <td colspan="2">
+                <img th:src="@{/client/} + ${client.id} + '/photo'">
+              </td>
+            </tr>
+          </table>
+          <ul>
+            <li><strong><a th:href="@{/client/} + ${client.id} + '/edit/profile'">EDIT_PROFILE</a></strong></li>
+            <li><strong><a th:href="@{/client/} + ${client.id} + '/edit/photo'">EDIT_PHOTO</a></strong></li>
+          </ul>
+          <div>
+            <form th:object="${client}" th:action="@{/client/} + ${client.id}" th:method="delete">
+              <input type="submit" value="DELETE" />
+            </form>
+          </div>
+      </div>
+
+      <header th:replace="~{templates/layout :: pageMenu}" ></header>
+    </div>
+  </body>
+</html>

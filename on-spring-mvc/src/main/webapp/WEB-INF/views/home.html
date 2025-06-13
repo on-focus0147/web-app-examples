@@ -1,0 +1,10 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{templates/layout :: pageTitle('Home, sweet, home')}"></head>
+<body>
+<div>
+  <p th:text="${message}" ></p>
+  <header th:replace="~{templates/layout :: pageMenu}" ></header>
+</div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" th:with="lang=${#locale.language}" th:lang="${lang}">
+<head th:fragment="pageTitle(title)">
+    <link rel="icon" type="image/png" th:href="@{/images/headR.png}">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title th:text="${title}"> Layout Page </title>
+    <link type="text/css" rel="stylesheet" th:href="@{/styles/general.css}" >
+</head>
+<body>
+        <section th:fragment="pageMenu">
+            <div class="menu">
+                <ul>
+                    <li><strong><a th:href="@{/}">HOME</a></strong></li>
+                    <li><strong><a th:href="@{/language}">CHANGE_LANGUAGE</a></strong></li>
+                    <li><strong><a th:href="@{/clients}">CLIENTS</a></strong></li>
+                    <li><strong><a th:href="@{/clients/create}">CREATE</a></strong></li>
+                    <li><strong><a th:href="@{/qwerty}">MISSING_URL</a></strong></li>
+                    <li><strong><a th:href="@{/client/99999999}">NOT_FOUND_CLIENT_URL</a></strong></li>
+                </ul>
+            </div>
+        </section>
+</body>
+</html>

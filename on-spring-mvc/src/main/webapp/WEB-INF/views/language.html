@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{templates/layout :: pageTitle('Language')}"></head>
+    <body>
+        <div>
+            <p th:text="#{locale} + ' = ' + ${#locale.language}"></p>
+            <p th:text="#{hello}"></p>
+            <div>
+                <span th:if="${#locale.language eq 'ru'}">
+                        <strong><a th:href="@{/language?lang=en}">GO TO ENGLISH</a></strong>
+                     </span>
+                <span th:unless="${#locale.language eq 'ru'}">
+                        <strong><a th:href="@{/language?lang=ru}">GO TO RUSSIAN</a></strong>
+                    </span>
+            </div>
+            <header th:replace="~{templates/layout :: pageMenu}" ></header>
+        </div>
+    </body>
+</html>

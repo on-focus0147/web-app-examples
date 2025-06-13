@@ -1,0 +1,12 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{templates/layout :: pageTitle('Error')}"></head>
+    <body>
+        <h3>Unexpected error!</h3>
+        <div class="error" th:if="${not #strings.isEmpty(problem)}">
+            <p th:text="${problem}" ></p>
+        </div>
+
+        <header th:replace="~{templates/layout :: pageMenu}" ></header>
+    </body>
+</html>

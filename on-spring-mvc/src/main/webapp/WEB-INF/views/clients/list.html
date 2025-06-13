@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="~{templates/layout :: pageTitle('List')}"></head>
+
+  <body>
+      <div>
+        <section>
+          <div>
+            <div >
+              <table th:if="${not #lists.isEmpty(clients)}">
+                <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>FIRSTNAME</th>
+                  <th>LASTNAME</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="client : ${clients}" >
+                      <td><a th:href="@{/client/} + ${client.id}" th:text="${client.id}">ID</a></td>
+                      <td th:text="${client.firstName}">...</td>
+                      <td th:text="${client.lastName}">...</td>
+                    </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+          <header th:replace="~{templates/layout :: pageMenu}" ></header>
+      </div>
+  </body>
+</html>
